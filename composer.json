@@ -12,8 +12,7 @@
     ],
     "homepage": "https://github.com/yesinteractive/fsl",
     "require": {
-        "php": ">=5.5",
-        "fsl/fsl": "*",
+        "php": ">=8.0",
         "ext-json": "*",
         "ext-fileinfo": "*"
     },
@@ -22,12 +21,24 @@
         {
             "name": "Yes Interactive",
             "email": "411@yes-interactive.com"
+        },
+        {
+            "name": "naoyukik"
         }
     ],
     "autoload": {
         "files": [
             "lib/fsl.php"
+        ],
+        "classmap": [
+            "controllers",
+            "lib"
         ]
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "josegonzalez/dotenv": "dev-master",
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "^9.0"
+    }
 }

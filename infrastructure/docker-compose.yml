@@ -1,0 +1,36 @@
+version: "3.8"
+volumes:
+  db-store:
+  php-fpm-socket:
+services:
+  app:
+    build: ./docker/php
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ../:/work
+      - /work/vendor
+    environment:
+      - XDEBUG_LOAD_MODULE=${XDEBUG_LOAD_MODULE}
+      - XDEBUG_MODE=${XDEBUG_MODE}
+      - XDEBUG_START_WITH_REQUEST=${XDEBUG_START_WITH_REQUEST}
+      - XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST}
+      - XDEBUG_CLIENT_PORT=${XDEBUG_CLIENT_PORT}
+      - XDEBUG_IDEKEY=${XDEBUG_IDEKEY}
+
+  web:
+    build: ./docker/nginx
+    ports:
+      - 80:80
+    volumes:
+      - php-fpm-socket:/var/run/php-fpm
+      - ../:/work
+    depends_on:
+      - app
+#      - db
+
+  db:
+    build: ./docker/mysql
+    volumes:
+      - db-store:/var/lib/mysql
+    ports:
+      - 3306:3306

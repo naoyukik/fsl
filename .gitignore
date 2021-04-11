@@ -3,3 +3,5 @@
 **/vendor
 Dockerfile
 .htaccess
+/.phpunit.result.cache
+/phpunit
