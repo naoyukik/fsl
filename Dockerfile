@@ -1,5 +1,4 @@
 FROM alpine:3.9
-MAINTAINER YesInteractive- https://yes-interactive.com
 
 # Install modules and updates
 RUN apk update \
