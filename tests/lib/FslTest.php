@@ -6,12 +6,9 @@ use PHPUnit\Framework\TestCase;
 
 class FslTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        require './vendor/autoload.php';
-    }
-
+    /**
+     * @testdox request methods return array
+     */
     public function testRequestMethods(): void
     {
         $arr = request_methods();
