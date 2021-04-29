@@ -27,6 +27,9 @@
         }
     ],
     "autoload": {
+        "psr-4": {
+            "tests\\": "./tests"
+        },
         "files": [
             "lib/fsl.php"
         ],
@@ -38,7 +41,6 @@
     "minimum-stability": "dev",
     "require-dev": {
         "josegonzalez/dotenv": "dev-master",
-        "roave/security-advisories": "dev-master",
-        "phpunit/phpunit": "^9.0"
+        "roave/security-advisories": "dev-master"
     }
 }
