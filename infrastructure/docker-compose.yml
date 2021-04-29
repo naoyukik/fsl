@@ -34,3 +34,12 @@ services:
       - db-store:/var/lib/mysql
     ports:
       - 3306:3306
+
+  qa:
+    image: jakzal/phpqa:alpine
+    tty: true
+    command: /bin/ash
+    volumes:
+      - type: bind
+        source: "../"
+        target: "/project"
