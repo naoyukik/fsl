@@ -6,9 +6,12 @@ services:
   app:
     build: ./docker/php
     volumes:
+      - type: bind
+        source: "../"
+        target: "/opt/project"
       - php-fpm-socket:/var/run/php-fpm
-      - ../:/opt/project
       - /opt/project/vendor
+
     environment:
       - XDEBUG_LOAD_MODULE=${XDEBUG_LOAD_MODULE}
       - XDEBUG_MODE=${XDEBUG_MODE}
